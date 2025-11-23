@@ -1,0 +1,454 @@
+/* Global Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Hero Section Styles */
+.hero-header {
+  position: relative;
+  background: linear-gradient(to bottom right, rgb(23, 23, 23), rgb(76, 29, 29), rgb(0, 0, 0));
+  border-bottom: 1px solid rgba(127, 29, 29, 0.5);
+  overflow: hidden;
+}
+
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, white 2px, white 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, white 2px, white 4px);
+  background-size: 50px 50px;
+}
+
+.glow-orb-left {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 24rem;
+  height: 24rem;
+  background-color: rgba(220, 38, 38, 0.2);
+  border-radius: 9999px;
+  filter: blur(96px);
+}
+
+.glow-orb-right {
+  position: absolute;
+  bottom: 0;
+  right: 25%;
+  width: 24rem;
+  height: 24rem;
+  background-color: rgba(153, 27, 27, 0.2);
+  border-radius: 9999px;
+  filter: blur(96px);
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, white, rgb(254, 202, 202), rgb(163, 163, 163));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 4.5rem;
+  }
+}
+
+/* Grid Layout Styles - CRITICAL FIX */
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .md\:gap-6 {
+    gap: 1.5rem;
+  }
+}
+
+/* Stat Cards */
+.stat-card {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(127, 29, 29, 0.3);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-card:hover {
+  border-color: rgba(220, 38, 38, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Chat Container */
+.chat-container {
+  background-color: rgba(23, 23, 23, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgb(38, 38, 38);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  min-height: 500px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+/* Custom Scrollbar */
+.chat-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+  background: rgba(38, 38, 38, 0.3);
+  border-radius: 4px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background: rgba(127, 29, 29, 0.5);
+  border-radius: 4px;
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(220, 38, 38, 0.6);
+}
+
+/* Message Bubbles */
+.message-bubble {
+  max-width: 48rem;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.user-message {
+  background-color: rgba(127, 29, 29, 0.3);
+  border: 1px solid rgba(153, 27, 27, 0.5);
+}
+
+.ai-message {
+  background-color: rgba(38, 38, 38, 0.5);
+  border: 1px solid rgba(64, 64, 64, 0.5);
+}
+
+/* Typing Animation */
+.typing-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: rgb(239, 68, 68);
+  border-radius: 9999px;
+  animation: bounce 1s infinite;
+  display: inline-block;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+}
+
+/* Input Container */
+.input-container {
+  background-color: rgba(23, 23, 23, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgb(38, 38, 38);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.chat-input {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgb(64, 64, 64);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1.125rem;
+  outline: none;
+  width: 100%;
+}
+
+.chat-input:focus {
+  border-color: rgb(220, 38, 38);
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2);
+}
+
+.chat-input::placeholder {
+  color: rgb(82, 82, 82);
+}
+
+/* Send Button */
+.send-button {
+  background: linear-gradient(to right, rgb(220, 38, 38), rgb(185, 28, 28));
+  color: white;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background: linear-gradient(to right, rgb(185, 28, 28), rgb(153, 27, 27));
+  box-shadow: 0 10px 15px -3px rgba(127, 29, 29, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid rgb(23, 23, 23);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+/* Additional Utility Classes for Tailwind Compatibility */
+.max-w-6xl {
+  max-width: 72rem;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.relative {
+  position: relative;
+}
+
+/* Responsive adjustments */
+@media (min-width: 640px) {
+  .sm\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .sm\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  .sm\:py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .sm\:mb-8 {
+    margin-bottom: 2rem;
+  }
+  
+  .sm\:mb-6 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .sm\:text-xl {
+    font-size: 1.25rem;
+  }
+  
+  .sm\:text-2xl {
+    font-size: 1.5rem;
+  }
+  
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+  }
+  
+  .sm\:text-4xl {
+    font-size: 2.25rem;
+  }
+  
+  .sm\:text-6xl {
+    font-size: 3.75rem;
+  }
+  
+  .sm\:text-lg {
+    font-size: 1.125rem;
+  }
+  
+  .sm\:text-sm {
+    font-size: 0.875rem;
+  }
+  
+  .sm\:max-w-3xl {
+    max-width: 48rem;
+  }
+  
+  .sm\:w-auto {
+    width: auto;
+  }
+  
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+  
+  .sm\:gap-4 {
+    gap: 1rem;
+  }
+  
+  .sm\:space-y-6 > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:text-7xl {
+    font-size: 4.5rem;
+  }
+  
+  .md\:text-4xl {
+    font-size: 2.25rem;
+  }
+}
