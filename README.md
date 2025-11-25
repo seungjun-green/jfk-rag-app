@@ -1,7 +1,3 @@
-Here is an updated and polished README tailored to your project structure, including the fact that your backend is a serverless Vercel function. This fits the folder layout shown in your screenshot and matches your tech stack precisely.
-
----
-
 # JFK-RAG: Retrieval-Augmented Generation on Declassified JFK Archives
 
 ## Overview
