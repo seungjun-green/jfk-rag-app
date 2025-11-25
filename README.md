@@ -68,18 +68,18 @@ JFK-RAG-APP/
 │   .vercel/
 │
 ├── api/
-│   └── chat.js          # Serverless function handling RAG queries
+│   └── chat.js        
 │
 ├── public/
 │
 ├── src/
 │   ├── assets/
 │   ├── App.css
-│   ├── App.jsx          # Main client UI
+│   ├── App.jsx        
 │   ├── index.css
 │   └── main.jsx
 │
-├── .env                 # Pinecone + API keys (not committed)
+├── .env                 
 ├── index.html
 ├── package.json
 ├── vite.config.js
@@ -130,12 +130,6 @@ vercel
 ```
 
 The serverless function will deploy automatically based on the `/api` directory.
-
----
-
-## How the Data Was Prepared
-
-Here is a rewritten and accurate version of **How the Data Was Prepared**, reflecting exactly what you described earlier:
 
 ---
 
