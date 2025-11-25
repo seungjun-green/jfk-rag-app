@@ -146,3 +146,5 @@ file_name, text
 ```
 
 This CSV served as the starting point for ingestion. The text was cleaned, chunked into semantically meaningful segments, embedded using a openai-embedding-3-small model, and finally upserted into Pinecone to enable fast similarity search inside the RAG pipeline.
+
+You can access the processed dataset at [here](https://huggingface.co/datasets/Seungjun/jfk-files/blob/main/README.md)
