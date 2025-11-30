@@ -602,7 +602,7 @@ export default function App() {
               disabled={!input.trim() || isStreaming}
               className={`send-btn ${input.trim() && !isStreaming ? 'active' : 'disabled'}`}
             >
-              <span>Run</span>
+              <span>SEND</span>
               <ChevronRight size={14} />
             </button>
           </div>
